@@ -32,8 +32,9 @@ it is good to have an alternative ( still nice to keep them as a possible transp
 K8S and mesh are already based on keypairs - only need to support EC256 and instead of PLC can use
 regular certificates. I think it's useful to also support the PLC and some interop - so tools and
 cool apps for ATproto can be adapted - but it doesn't seem required to support all options.
-In particular a PLC variatint as a way to track and distribute workload and service public keys and 
-handle rotations - without the requirement of a mesh-wide CA - is interesting to explore.
+A PLC variat, as a way to track and distribute workload and service public keys and 
+handle rotations - without the requirement of a mesh-wide CA - is interesting to explore, but 
+not a priority - mesh CAs are stable enough.
 
 Authentication will use mTLS and JWTs - in addition or instead of the custom version of OAuth or OIDC 
 that ATproto uses (with normal url in JWTs, not dids). Similarly, normal URLs for services and 
@@ -45,8 +46,8 @@ K8S and Istio can run fully decoupled from Internet. A couple of RaspberryPi - a
 working DNS, secure network, CA, control plane and so on, no internet needed besides downloading
 the images. Running ATproto in such environment can be a proof that it is indeed a decentralized
 protocol ( but not as a 'social protocol' !). Assuming that a network protocol will only be used
-for a specific use case - small social messages or 'hypertext' - or designing a protocol that 
-can't be only be used for one purpose is not ideal.
+for a specific use case - small social messages or 'hypertext', or designing a protocol that 
+can be only be used for one use case is not ideal.
 
 K8S and Istio in a cluster are quite centralized - the APIserver, Istiod, CA are critical
 pieces, if any is compromised or down it will impact the entire cluster. This is handled by 
